@@ -1,6 +1,14 @@
 ### Steps to set-up
-1. Git clone this repository
-2. Clone [OPRA Dependencies](https://github.com/tomjmwang/opra_dependencies/tree/master/python_packages) to local machine's python libraries
+1. Git clone this repository, install python below 3.10 
+to have co-existing python versions.
+```
+Deactivate all current conda evns
+ conda deactivate
+Create a new env
+ conda create -n opra39 python=3.9
+ conda activate opra39
+```
+2. Clone [OPRA Dependencies](https://github.com/tomjmwang/opra_dependencies/tree/master/python_packages) to local machine's python libraries.
 3. Install all the python dependencies based on the requirement.txt file.
 ```
 pip3 install -r requirements.txt
