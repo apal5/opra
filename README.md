@@ -7,39 +7,46 @@ The web app is built on Django, and uses an SQLite database. [Click here](https:
 ##Installation
 
 1. Install [Python](https://www.python.org/downloads/). It is recommended that you use the latest version of Python 3 but before python 3.10.
-2. Install [Django](https://www.djangoproject.com). The easiest way to do this is through [pip] (https://pip.pypa.io/en/latest/installing/#installing-with-get-pip-py). Then you can install django simply by entering the command:
-  <code>pip install django==2.2</code>
-You can verify installation by entering the command:
-  <code>python</code>
-  <code>import django</code>
-  <code>print(django.get_version())</code>
+2. Install [Django](https://www.djangoproject.com). The easiest way to do this is through [pip] (https://pip.pypa.io/en/latest/installing/#installing-with-get-pip-py). Then you can install django simply by entering the command: 
 
+   <code>pip install django==2.2</code>
+   
+   You can verify installation by entering the command:
+   
+   <code>python</code>
+   
+   <code>import django</code>
+   
+   <code>print(django.get_version())</code>
+   
 * Note that if your system has both Python 2 and Python 3, usually "python3" and "pip3" are used in places of "python" and "pip" repectively. Replace as needed.
     
 3. Install the dependencies listed below in the Dependencies section by entering:
-  <code>pip install -r requirements.txt</code>
+
+    <code>pip install Package-Name</code>
 	
-4. Clone [opra_dependencies] (https://github.com/tomjmwang/opra_dependencies) Github directoy to your local machine. Copy <code>django_mobile<code> and <code>prefpy<code> directoies to your python library and overwrite original files.
+4. Clone [opra_dependencies] (https://github.com/tomjmwang/opra_dependencies) Github directoy to your local machine. Copy django_mobile and prefpy directoies to your python library and overwrite original files.
 	
 5. Clone this project from Github
 
 6. Copy settings.py from opra_dependencies to compsocsite/compsocsite. Copy opra_crypto.py from opra_dependencies to compsocsite/polls.
 
 7. Open command line (terminal), change to OPRA's directory, and then enter the following commands:
+
   <code>cd composcite</code>
   
   <code>python manage.py migrate</code>
   
   <code>python manage.py createcachetable</code>
   
-Then run the server by entering:
+  Then run the server by entering:
 
   <code>python manage.py runserver</code>
 
 6. To view the page, go to your web browser and visit this address:
-```
-http://127.0.0.1:8000
-```
+
+  <code>http://127.0.0.1:8000</code>
+
 
 ##Dependencies
 * **django-mobile**:
