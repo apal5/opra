@@ -6,47 +6,40 @@ The web app is built on Django, and uses an SQLite database. [Click here](https:
 
 ##Installation
 
-1. Install [Python](https://www.python.org/downloads/). It is recommended that you use the latest version of Python 3.
-2. Install [Django](https://www.djangoproject.com). The easiest way to do this is through [pip] (https://pip.pypa.io/en/latest/installing/#installing-with-get-pip-py). Then you can install django simply by entering the command: 
+1. Install [Python](https://www.python.org/downloads/). It is recommended that you use the latest version of Python 3 but before python 3.10.
+2. Install [Django](https://www.djangoproject.com). The easiest way to do this is through [pip] (https://pip.pypa.io/en/latest/installing/#installing-with-get-pip-py). Then you can install django simply by entering the command:
+  <code>pip install django==2.2</code>
+You can verify installation by entering the command:
+  <code>python</code>
+  <code>import django</code>
+  <code>print(django.get_version())</code>
 
-   <code>pip install django==2.2</code>
-   
-   You can verify installation by entering the command:
-   
-   <code> python </code>
-   
-   <code> import django </code>
-   
-   <code> print(django.get_version()) </code>
-   
 * Note that if your system has both Python 2 and Python 3, usually "python3" and "pip3" are used in places of "python" and "pip" repectively. Replace as needed.
     
 3. Install the dependencies listed below in the Dependencies section by entering:
-
-    <code>  pip install Package-Name </code>
+  <code>pip install -r requirements.txt</code>
 	
-4. Clone [opra_dependencies] (https://github.com/tomjmwang/opra_dependencies) Github directoy to your local machine. Copy django_mobile and prefpy directoies to your python library and overwrite original files.
+4. Clone [opra_dependencies] (https://github.com/tomjmwang/opra_dependencies) Github directoy to your local machine. Copy <code>django_mobile<code> and <code>prefpy<code> directoies to your python library and overwrite original files.
 	
 5. Clone this project from Github
 
 6. Copy settings.py from opra_dependencies to compsocsite/compsocsite. Copy opra_crypto.py from opra_dependencies to compsocsite/polls.
 
 7. Open command line (terminal), change to OPRA's directory, and then enter the following commands:
-  
   <code>cd composcite</code>
   
   <code>python manage.py migrate</code>
   
   <code>python manage.py createcachetable</code>
   
-  Then run the server by entering:
+Then run the server by entering:
 
   <code>python manage.py runserver</code>
 
 6. To view the page, go to your web browser and visit this address:
-
-  <code>http://127.0.0.1:8000</code>
-
+```
+http://127.0.0.1:8000
+```
 
 ##Dependencies
 * **django-mobile**:
@@ -62,7 +55,7 @@ The web app is built on Django, and uses an SQLite database. [Click here](https:
 * **matplotlib**:
 
 
-##Models
+## Models
 The following models are used to organize information:
 * **User:** includes username, password, and personalized settings
 * **Question:** includes the text of a question, its publication date, and whether it is a follow-up to another question
@@ -70,23 +63,23 @@ The following models are used to organize information:
 * **Response:** the response of one student to one question. Includes a dictionary of the input preferences, the question and student it is associated with, the submission timestamp, and the item from this response the student has been allocated. This last field starts out blank, and is updated when an allocation algorithm is run
 
 
-##Poll Owner Usage
+## Poll Owner Usage
 The poll owner can add, view, edit, and delete questions, items, and voters. All lists of data are sortable by name and (when applicable) date.
 
 To display a question for users to respond to, the poll owner must make a new question, entering the relevant text and items. The poll owner can look in the history section to see which users have responded to which questions. When you wish to allocate the items for a question, click stop to end the poll.This will run the algorithm, update the allocated item field in each response, and publish the results.
 
-##Voter Usage
+## Voter Usage
 From the home page (/polls/), all available questions may be viewed. To view a specific question, click on it. The screen will show a simplfied voter interface, which allows you to visualize your preferences. One rank per item may be selected, but ties are allowed. Only complete preferences are accepted. A question response may either be submitted with a registered account or under an anonymous name, if the poll owner has agreed to allow anonymous voting. When the "Submit" button is clicked, a response will be submitted, associated with the given question, and with the preferences indicated. A small alert will be displayed.
 
 Also on the home page is a list of links to results for each question. A given link will not be clickable until the results for that question have been published by the poll owner (by performing the allocation algorithm action). Clicking on a link to a set of results will bring the student to a list of all students and the item they have been allocated for that particular question.
 
 
-##Allocation Algorithms
+## Allocation Algorithms
 The project is currently equipped with a serial dictatorship allocation algorithm. This algorithm chooses presentation topic assignment in increasing order of presentation topic response timestamp, then chooses presentation date assignment in decreasing order of presentation topic response timestamp.
 
 More algorithms can easily be added. Within the algorithms.py file inside the polls directory, add a function def for the desired algorithm, with the response set as a parameter. Then, at the top of the admin.py file inside the polls directory, add a function def for an admin action corresponding to the new algorithm. The preexisting admin action function can be used as a guide for the necessary syntax to add a new admin action. Lastly, in the ResponseAdmin class at the bottom of admin.py, add the new admin action function to the list of actions.
 
-##OPRA DOCUMENTATON
+## OPRA DOCUMENTATON
 
 OPRA stands for online preference reporting and aggregation, which is essentially an online voting system. The system is built up by taking advantage of Django free and open-source web framework written extensively in Python. It maintains Django’s basic model-view-template (MVT) architectural pattern.  This documentation basically consists of two parts. The first part will give you an overarching view of the major components of OPRA. The second part will dive into each component and detail each constituted function. 
 
